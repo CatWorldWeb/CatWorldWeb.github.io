@@ -127,6 +127,41 @@ background-color: black;
 <div class = "ground">
 <body bgcolor= "#232323"></body>
 <h1 style="color:#FFFFFF">Cat World Games</h1>
+<div class="quotes" style="display:none;"><em><font color = "white">здраствуй</em><br/><br/><span class="alignright">)</span></div>
+<div class="quotes" style="display:none;"><em>капец привет кот</em><br/><br/><span class="alignright">Слава всему котомиру!</span></div>
+<div class="quotes" style="display:none;"><em>Ты пользователь</em><br/><br/><span class="alignright">добро пожаловать</span></div>
+<div class="quotes" style="display:none;"><em>Как твои дела?</em><br/><br/><span class="alignright">со мной все норм!</span></div>
+</font>
+
+
+<script type="text/javascript">
+//I. Задаем переменные
+//узнаем длину массива
+number = document.getElementsByClassName('quotes');
+
+//определяем отдельную переменную для каждого class quotes в массиве
+var randomquote = [];
+for (i=0; i<=number.length; i++)  {
+randomquote[i] = document.getElementsByClassName('quotes')[i];
+	    randomquote.push(randomquote[i]);
+				        }
+
+//II. Функция генерирующая число от 0 до n 
+function randomzero (n)
+{
+  return ( Math.floor ( Math.random ( )*0.9999999999999999* (n + 1)) );
+}
+
+//III. assign any random number from 0 to number1 to x.
+var number1 = number.length-1;
+
+x = randomzero(number1);
+
+//IV. Показать цитату
+randomquote[x].style.display = 'block';
+
+
+</script>
 <h4><p><font color = "#FFFFFF">
 <strong>Наши игры можете скачать тут</strong></font></p></h4>
 <hr class="diz"></hr>
