@@ -143,29 +143,28 @@ background-color: black;
 
 
 <script type="text/javascript">
-//I. Задаем переменные
-//узнаем длину массива
+
 number = document.getElementsByClassName('quotes');
 
-//определяем отдельную переменную для каждого class quotes в массиве
+
 var randomquote = [];
 for (i=0; i<=number.length; i++)  {
 randomquote[i] = document.getElementsByClassName('quotes')[i];
 	    randomquote.push(randomquote[i]);
 				        }
 
-//II. Функция генерирующая число от 0 до n 
+
 function randomzero (n)
 {
   return ( Math.floor ( Math.random ( )*0.9999999999999999* (n + 1)) );
 }
 
-//III. assign any random number from 0 to number1 to x.
+
 var number1 = number.length-1;
 
 x = randomzero(number1);
 
-//IV. Показать цитату
+
 randomquote[x].style.display = 'block';
 
 
