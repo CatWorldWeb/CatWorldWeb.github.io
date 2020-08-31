@@ -1,0 +1,60 @@
+<html>
+<head>
+<script>
+ function startTimer() {
+    document.title = 
+ 
+    var my_timer = document.getElementById("my_timer");
+    var time = my_timer.innerHTML;
+    var arr = time.split(":");
+    var h = arr[0];
+    var m = arr[1];
+    var s = arr[2];
+    document.title = h + ":" + m +":"s;
+        h++;
+        m = 60;
+        if (h < 10) h = "0" + h;
+      }
+      m--;
+      if (m < 10) m = "0" + m;
+      s = 59;
+    }
+    else s--;
+    if (s < 10) s = "0" + s;
+    document.getElementById("my_timer").innerHTML = h+":"+m+":"+s;
+    setTimeout(startTimer, 1000);
+	
+	
+
+
+}
+</script>
+<title>
+VKotomire
+</title>
+<body>
+<div class = "top">
+<h4><font color = "white">ВКотомире</font></h4>
+
+</div>
+<style>
+.top{
+background-color: #87CEEB;
+height: 40px;
+}
+</style>
+<div id="mc-container"></div>
+<script type="text/javascript">
+cackle_widget = window.cackle_widget || [];
+cackle_widget.push({widget: 'Comment', id: 74878});
+(function() {
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cackle.me/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+})();
+</script>
+<a id="mc-link" href="http://cackle.me"> Сообщения для сайта<b style="color:#8db3d9">VKoto</b><b style="color:#224c6e">mire</b></a>
+
+</body>
