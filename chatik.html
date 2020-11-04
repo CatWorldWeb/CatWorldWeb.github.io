@@ -155,14 +155,14 @@ body {
         // give each message a unique ID
         html += "<li id='message-" + snapshot.key + "'>";
         // show delete button if message is sent by me
-        if (snapshot.val().sender == myName) {
-            html += "<button data-id='" + snapshot.key + "' onclick='deleteMessage(this);'>";
+        
+        html += snapshot.val().sender + ": " + snapshot.val().message;
+        html += "</li>";
+ if (snapshot.val().sender == myName) {
+            html += "<button data-id='" + snapshot.key + "' onclick='deleteMessage(this);' class = 'send'>";
                 html += "Delete";
             html += "</button>";
         }
-        html += snapshot.val().sender + ": " + snapshot.val().message;
-        html += "</li>";
- 
         document.getElementById("messages").innerHTML += html;
     });
 	
@@ -185,6 +185,13 @@ firebase.database().ref("messages").on("child_removed", function (snapshot) {
  <style>
  .text{
  color: black;
+ }
+ .send
+ {
+ background-color: red;
+ border:5px solid red;
+ border-radius:15px;
+ color:yellow;
  }
  .canvaschat
  {
