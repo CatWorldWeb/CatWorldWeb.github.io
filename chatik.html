@@ -126,6 +126,9 @@ body {
   document.getElementById("message").value = "";
   });
   }
+  else
+  {
+  alert("Пустое поле ввода с
   return false;
   }
   firebase.database().ref("messages").on("child_added", function(snapshot){
