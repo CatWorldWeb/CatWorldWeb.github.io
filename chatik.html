@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
  <head>
- <title> чат</title>
+ 
  <script>
  document.title = message;
  </script>
@@ -119,7 +119,7 @@ body {
   var myName = prompt("Введите свое имя");
   function sendMessage()
   {
-  if (myName != "" && message!="" )
+  if (myName.length > 4 && message!="" )
   {
   var message = document.getElementById("message").value;
   firebase.database().ref("messages").push().set({
