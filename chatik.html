@@ -87,5 +87,81 @@ body {
      <i class="fa fa-bars"></i>
     </a>
    </div>
+
+Скопируйте и вставьте эти скрипты в конец тега <body> перед сервисами Firebase:
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyCIYuUoD0MNpvJHODMSp76JEJRG_pm1egg",
+    authDomain: "vkotomire.firebaseapp.com",
+    databaseURL: "https://vkotomire.firebaseio.com",
+    projectId: "vkotomire",
+    storageBucket: "vkotomire.appspot.com",
+    messagingSenderId: "710516320047",
+    appId: "1:710516320047:web:1966bb2619557c8f8ea3da",
+    measurementId: "G-GMWKZJ69G7"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var myName = prompt("Введите свое имя");
+  function sendMessage()
+  {
+  if (myName != "" && message!="" )
+  {
+  var message = document.getElementById("message").value;
+  firebase.database().ref("messages").push().set({
+  "sender":myName,
+  "message":message
+  
+  });
+  }
+  return false;
+  }
+  firebase.database().ref("messages").on("child_added", function(snapshot){
+  var html = "";
+  html +="<h3 class = 'text'>";
+  
+  html += snapshot.val().sender + ": " + snapshot.val().message;
+  html += "</h3>";
+  
+   
+  document.getElementById("messages").innerHTML += html;
+  });
+
+</script>
+<p></p>
+<hr></hr><hr></hr><hr></hr>
+<p></p>
+<center>
+<h1><font color = "yellow"> Публичный Чат </font></h1>
+<form >
+<input id="message" placeholder = "Введите сообщение" autocomplete = "off" class = "displaymessage">
+ <img src ="https://psv4.userapi.com/c856336/u549103040/docs/d11/8700b02c578b/imgonline-com-ua-Transparent-backgr-bdZpwBgb7REVYXEA.png?extra=KoWiqROBiYXpdTpo0pTljjlQ3MIhS_doajugUvuO15ji98AwXF-Gk6IK8Fq7_MEbseqMvsbiQN61TZsTK2ro5AAWTnAMmZHgQcsUCXOjuEwW1oFMxjrGk_fVypS_KYVjZ791PQ4IdCbsHWM4FD33jTpJClg" onclick = "return sendMessage();" width = "50" height = "50">
+ </form>
+ <ul id = "messages" class = "canvaschat"></ul>
+ <style>
+ .text{
+ color: black;
+ }
+ .canvaschat
+ {
+ background-color:white;
+ border:10px solid white;
+ border-radius:15px;
+ }
+ .displaymessage
+ {
+ border: 10px solid white;
+ border-radius:15px;
  </body>
+ 
 </html>
