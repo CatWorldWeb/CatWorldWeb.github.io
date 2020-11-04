@@ -125,7 +125,7 @@ body {
   firebase.database().ref("messages").push().set({
   "sender":myName,
   "message":message
-  
+  document.getElementById("message").value = "";
   });
   }
   return false;
