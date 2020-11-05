@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
  <head>
+ 				<script data-ad-client="ca-pub-7088445945474705" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
  <title> Chat</title>
  <style>
 body {
@@ -61,6 +62,9 @@ body {
   }
 }
    </style>
+   <script>
+   				var url ="https:/";
+   </script>
    <script>
   function myFunction() {
   var x = document.getElementById("myTopnav");
@@ -126,7 +130,8 @@ body {
         // save in database
         firebase.database().ref("messages").push().set({
             "sender": myName,
-            "message": message
+            "message": message,
+            "url":url
         });
  document.getElementById("message").value = "";
         // prevent form from submitting
@@ -143,17 +148,22 @@ body {
 <center>
 <h1><font color = "yellow"> Публичный Чат </font></h1>
 <form >
-<input id="message" placeholder = "Введите сообщение" autocomplete = "off" class = "displaymessage" >
+<textarea id="message" placeholder = "Введите сообщение" autocomplete = "off" class = "displaymessage" ></textarea>
  <img src ="https://psv4.userapi.com/c856336/u549103040/docs/d11/8700b02c578b/imgonline-com-ua-Transparent-backgr-bdZpwBgb7REVYXEA.png?extra=KoWiqROBiYXpdTpo0pTljjlQ3MIhS_doajugUvuO15ji98AwXF-Gk6IK8Fq7_MEbseqMvsbiQN61TZsTK2ro5AAWTnAMmZHgQcsUCXOjuEwW1oFMxjrGk_fVypS_KYVjZ791PQ4IdCbsHWM4FD33jTpJClg" onclick = "return sendMessage();" width = "50" height = "50">
+ 
+ 				
+ 				
+ 
  </form>
- <ul id = "messages" class = "canvaschat"></ul>
+ <ul id = "messages"></ul>
  <script>
     // listen for incoming messages
     firebase.database().ref("messages").on("child_added", function (snapshot) {
 	
         var html = "";
         // give each message a unique ID
-        html += "<li id='message-" + snapshot.key + "'>";
+        html+="<hr></hr>"
+        html += "<li id='message-" + snapshot.key + "' class= 'canvaschat'>";
         // show delete button if message is sent by me
         
         html += snapshot.val().sender + ": " + snapshot.val().message;
@@ -163,6 +173,11 @@ body {
                 html += "Delete";
             html += "</button>";
         }
+ 
+   			
+   
+        
+        
         document.getElementById("messages").innerHTML += html;
     });
 	
