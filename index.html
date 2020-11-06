@@ -254,15 +254,16 @@ randomquote[x].style.display = 'block';
    .green { background: #73A353; }
    .red { background: #C1172C; }
    .orange { background: #F7941E; }
-   .like{weight:350px;
+   .like{weight:100px;
 height:30px;
-border:1px solid purple;
-background-color:orange;
+border:1px solid blue;
+background-color:blue;
 outline:none;
 position:obsolute;
 transform: translate(-10%.-10%);
 top:100%;
 left:1%;
+border-radius:15px;
 transition: all .4s ease;
 font-size: 20px;
 }
@@ -282,11 +283,7 @@ color:darkred;
 width: 500px;
 font-size: 30px;
 }
-button:hover {
-width:150px;
-height: 40 px
-box-shadow:4px 4px crimson;
-font-size: 21px;
+
   </style>
   <style>
   hr.diz{
@@ -334,16 +331,144 @@ width:200px;
 <script type="text/javascript">
 VK.Widgets.Like("vk_like", {type: "button", height: 24});
 </script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
 
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+
+<script>
+ 
+  var firebaseConfig = {
+    apiKey: "AIzaSyCIYuUoD0MNpvJHODMSp76JEJRG_pm1egg",
+    authDomain: "vkotomire.firebaseapp.com",
+    databaseURL: "https://vkotomire.firebaseio.com",
+    projectId: "vkotomire",
+    storageBucket: "vkotomire.appspot.com",
+    messagingSenderId: "710516320047",
+    appId: "1:710516320047:web:1966bb2619557c8f8ea3da",
+    measurementId: "G-GMWKZJ69G7"
+  };
+ 
+   firebase.initializeApp(firebaseConfig);
+   
+   var name = prompt("Введите свое имя,это необходимо!");
+   
+   
+
+  </script>
+ 
+  <script>
+    function sendMessage() {
+	
+       
+        var comm = document.getElementById("message").value;
+          if (name != "" && comm != "" && comm.length < 4000)
+	{
+        
+        firebase.database().ref("comment").push().set({
+            "user": name,
+            "commentariy": comm,
+			
+        });
+ document.getElementById("message").value = "";
+      
+        return false;
+		}
+    }
+	if (comm.length >4000)
+	{
+	alert(name +", " + "ага решил поспамить");
+	}
+	
+</script>
+
+<script data-ad-client="ca-pub-7088445945474705" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+<form >
+<textarea id="message" placeholder = "Оставьте комментарий" autocomplete = "off" class = "displaymessage"  ></textarea>
+ <img src ="https://psv4.userapi.com/c856524/u617056156/docs/d5/e32427e4c02b/2020_10_16_063654.png?extra=a56gA5lfWMkMAu58NkzP2LAys0fjoaw_ucVrkWjbLf3zz0_hHMmTVJZDQVBCInvk6QzaTUwBGa-HMC7OY5d5QsrGV3P2xI5VWkRCt6McvwwqX83yNawAm7EhwS6F48UzM0EHqEurjoEqNpjkTVjZtQpQA50" onclick = "return sendMessage();" width = "50" height = "50">
+
+ 			
+ 
+ </form>
+ <ul id = "messages"></ul>
+ <script>
+    
+    firebase.database().ref("comment").on("child_added", function (snapshot) {
+	
+        var html = "";
+        
+        
+        html += "<p id='message-" + snapshot.key + "' class= 'comment'>";
+        
+        
+        html += snapshot.val().user + ":Ваш комментарий: " + snapshot.val().commentariy;
+        html += "</p>";
+		
+		
+		
+		
+		if (snapshot.val().user == name) {
+            html += "<button data-id='" + snapshot.key + "' onclick='deleteMessage(this);' class = 'send'>";
+                html += "Delete";
+            html += "</button>";
+        }
+ 
+   			
+   
+        
+        
+        document.getElementById("messages").innerHTML += html;
+    });
+	
+	
+</script>
+
+<script>
+function deleteMessage(self) {
+  
+    var messageId = self.getAttribute("data-id");
+ 
+ 
+    firebase.database().ref("comment").child(messageId).remove();
+}
+
+firebase.database().ref("comment").on("child_removed", function (snapshot) {
+ 
+    document.getElementById("message-" + snapshot.key).innerHTML = "сообщение удалено";
+});
+</script>
  <style>
  .text{
  color: black;
  }
- .canvaschat
+ .send
  {
- background-color:white;
- border:10px solid white;
+ background-color: red;
+ border:5px solid red;
  border-radius:15px;
+ color:yellow;
+ }
+
+ .displaymessage
+ {
+ border: 10px solid white;
+ border-radius:15px;
+ </style>
+ <style>
+ .text{
+ color: black;
+ }
+ .comment{
+ border:1px solid gray;
+ width:600px;
+ background-color:#181818;
+ color:yellow;
+ border-radius:13px;
  }
  .displaymessage
  {

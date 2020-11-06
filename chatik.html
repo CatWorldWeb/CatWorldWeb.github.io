@@ -126,7 +126,7 @@ body {
 	
         
         var message = document.getElementById("message").value;
-          if (myName != "" && message != "")
+          if (myName != "" && message != "" && message.length <2000)
 	{
         
         firebase.database().ref("messages").push().set({
