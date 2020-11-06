@@ -1,0 +1,117 @@
+<html>
+<head>
+<title>Бесплатный плагин чата Cat-World Games FireBase</title>
+</head>
+<body>
+ <body  bgcolor="#232323">
+<a href = "chatik.html"><font size = "4px">Вернуться к чату</font></a>
+<center>
+<font color = "red"><strong><h2>Установи готовый чат CatWorld Games from FireBase на свой сайт</h2></strong></font>
+
+
+
+
+<style>
+.code{
+border:4px solid black;
+border-radius:15px;
+
+color:gray;
+width:999px;
+}
+.table {
+background-color: #282828;
+width:220px;
+
+}
+
+
+</style>
+<a href = "https://zen.yandex.ru/media/id/5ee0d1dfdabd9a56340e242d/kak-priviazat-nash-plagin-k-svoemu-saita-i-k-serveru-firebase-5fa52ee5b1fbcf2e2312f3e0"><font color = "yellow">Инструкция по установке</font></a>
+<plaintext class = "code" id = "copy">
+var name = prompt("Введите свое имя");
+  </script>
+  <script>
+    function sendMessage() {
+	
+        
+        var message = document.getElementById("message").value;
+          if (name != "" && message != "")
+	{
+     
+        firebase.database().ref("messages").push().set({
+            "sender": name,
+            "message": message
+        });
+ document.getElementById("message").value = "";
+       
+        return false;
+		}
+    }
+	
+</script>
+<center>
+
+
+<form >
+<input id="message" placeholder = "Введите сообщение" autocomplete = "off" class = "displaymessage" >
+ <img src ="ссылка на изображение кнопки отправки" onclick = "return sendMessage();" width = "50" height = "50">
+ </form>
+ <ul id = "messages" class = "canvaschat"></ul>
+ <script>
+   
+    firebase.database().ref("messages").on("child_added", function (snapshot) {
+	
+        var html = "";
+       
+        html += "<li id='message-" + snapshot.key + "'>";
+        
+        
+        html += snapshot.val().sender + ": " + snapshot.val().message;
+        html += "</li>";
+ if (snapshot.val().sender == name) {
+            html += "<button data-id='" + snapshot.key + "' onclick='deleteMessage(this);' class = 'send'>";
+                html += "Delete";
+            html += "</button>";
+        }
+        document.getElementById("messages").innerHTML += html;
+    });
+	
+</script>
+<script>
+function deleteMessage(self) {
+    
+    var messageId = self.getAttribute("data-id");
+ 
+    
+    firebase.database().ref("messages").child(messageId).remove();
+}
+ 
+
+firebase.database().ref("messages").on("child_removed", function (snapshot) {
+  
+    document.getElementById("message-" + snapshot.key).innerHTML = "сообщение удалено";
+});
+</script>
+<style>
+ .text{
+ color: black;
+ }
+ .send
+ {
+ background-color: red;
+ border:5px solid red;
+ border-radius:15px;
+ color:yellow;
+ }
+ .canvaschat
+ {
+ background-color:white;
+ border:10px solid white;
+ border-radius:15px;
+ }
+ .displaymessage
+ {
+ border: 10px solid white;
+ border-radius:15px;
+ </style>

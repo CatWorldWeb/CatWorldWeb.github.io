@@ -96,16 +96,13 @@ body {
    </div>
 
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
+
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
 
 <script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+ 
   var firebaseConfig = {
     apiKey: "AIzaSyCIYuUoD0MNpvJHODMSp76JEJRG_pm1egg",
     authDomain: "vkotomire.firebaseapp.com",
@@ -116,26 +113,28 @@ body {
     appId: "1:710516320047:web:1966bb2619557c8f8ea3da",
     measurementId: "G-GMWKZJ69G7"
   };
+ 
+   firebase.initializeApp(firebaseConfig);
+   
+   var myName = prompt("Введите свое имя");
+   
   
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  var myName = prompt("Введите свое имя");
+
   </script>
   <script>
     function sendMessage() {
 	
-        // get message
+        
         var message = document.getElementById("message").value;
           if (myName != "" && message != "")
 	{
-        // save in database
+        
         firebase.database().ref("messages").push().set({
             "sender": myName,
             "message": message,
-            "url":url
         });
  document.getElementById("message").value = "";
-        // prevent form from submitting
+      
         return false;
 		}
     }
@@ -148,6 +147,7 @@ body {
 <p></p>
 <center>
 <h1><font color = "yellow"> Публичный Чат </font></h1>
+<a href = "plagin.html"><font size ="4px"><font color = "blue">Установить чат на свой сайт</font></font></a>
 <script data-ad-client="ca-pub-7088445945474705" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
@@ -164,14 +164,14 @@ body {
  </form>
  <ul id = "messages"></ul>
  <script>
-    // listen for incoming messages
+    
     firebase.database().ref("messages").on("child_added", function (snapshot) {
 	
         var html = "";
-        // give each message a unique ID
+        
         html+="<hr></hr>"
         html += "<li id='message-" + snapshot.key + "' class= 'canvaschat'>";
-        // show delete button if message is sent by me
+       
         
         html += snapshot.val().sender + ": " + snapshot.val().message;
         html += "</li>";
@@ -191,16 +191,15 @@ body {
 </script>
 <script>
 function deleteMessage(self) {
-    // get message ID
+  
     var messageId = self.getAttribute("data-id");
  
-    // delete message
+ 
     firebase.database().ref("messages").child(messageId).remove();
 }
- 
-// attach listener for delete message
+
 firebase.database().ref("messages").on("child_removed", function (snapshot) {
-    // remove message node
+ 
     document.getElementById("message-" + snapshot.key).innerHTML = "сообщение удалено";
 });
 </script>
