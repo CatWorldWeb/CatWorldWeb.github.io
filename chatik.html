@@ -101,22 +101,9 @@ body {
 
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
 
-<script>
+<script src = "database.js">
  
-  var firebaseConfig = {
-    apiKey: "AIzaSyCIYuUoD0MNpvJHODMSp76JEJRG_pm1egg",
-    authDomain: "vkotomire.firebaseapp.com",
-    databaseURL: "https://vkotomire.firebaseio.com",
-    projectId: "vkotomire",
-    storageBucket: "vkotomire.appspot.com",
-    messagingSenderId: "710516320047",
-    appId: "1:710516320047:web:1966bb2619557c8f8ea3da",
-    measurementId: "G-GMWKZJ69G7"
-  };
- 
-   firebase.initializeApp(firebaseConfig);
-   
-   var myName = prompt("Введите свое имя");
+  
    
   
 
@@ -126,13 +113,14 @@ body {
 	
         
         var message = document.getElementById("message").value;
-          if (myName != "" && message != "" && message.length <5000)
+          if (myName != "" && message != "" )
 	{
         
         firebase.database().ref("messages").push().set({
             "sender": myName,
             "message": message,
         });
+		
  document.getElementById("message").value = "";
       
         return false;
@@ -166,7 +154,7 @@ body {
  <script>
     
     firebase.database().ref("messages").on("child_added", function (snapshot) {
-	
+	     var money = 0;
         var html = "";
         
         html+="<hr></hr>"
@@ -175,20 +163,19 @@ body {
         
         html += snapshot.val().sender + ": " + snapshot.val().message;
         html += "</li>";
- if (snapshot.val().sender == myName) {
+ if (snapshot.val().sender == myName || snapshot.val().sender =="хоррор") {
             html += "<button data-id='" + snapshot.key + "' onclick='deleteMessage(this);' class = 'send'>";
                 html += "Delete";
             html += "</button>";
         }
- 
-   			
-   
-        
-        
+          
+		
+
         document.getElementById("messages").innerHTML += html;
     });
 	
 </script>
+
 <script>
 function deleteMessage(self) {
   
@@ -214,11 +201,19 @@ firebase.database().ref("messages").on("child_removed", function (snapshot) {
  border-radius:15px;
  color:yellow;
  }
+ .work
+ {
+  background-color: blue;
+ border:5px solid blue;
+ border-radius:15px;
+ color:yellow;
+ }
  .canvaschat
  {
  background-color:white;
  border:10px solid white;
  border-radius:15px;
+ width: 300px;
  }
  .displaymessage
  {
