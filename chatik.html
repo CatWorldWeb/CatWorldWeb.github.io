@@ -100,21 +100,8 @@ body {
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
-<script>
-var firebaseConfig = {
-    apiKey: "AIzaSyCIYuUoD0MNpvJHODMSp76JEJRG_pm1egg",
-    authDomain: "vkotomire.firebaseapp.com",
-    databaseURL: "https://vkotomire.firebaseio.com",
-    projectId: "vkotomire",
-    storageBucket: "vkotomire.appspot.com",
-    messagingSenderId: "710516320047",
-    appId: "1:710516320047:web:1966bb2619557c8f8ea3da",
-    measurementId: "G-GMWKZJ69G7"
-  };
- 
-   firebase.initializeApp(firebaseConfig);
-   
-   var myName = prompt("Введите свое имя");
+<script src = "https://catworldweb.github.io/database.js">
+
  
   
    
@@ -122,9 +109,15 @@ var firebaseConfig = {
 
   </script>
   <script>
+  
+
+
+
+  </script>
+  <script>
     function sendMessage() {
 	
-        
+       
         var message = document.getElementById("message").value;
           if (myName != "" && message != "" )
 	{
@@ -142,7 +135,6 @@ var firebaseConfig = {
 	
 </script>
 
-  
 <p></p>
 <hr></hr><hr></hr><hr></hr>
 <p></p>
