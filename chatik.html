@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
  <head>
+ <link rel="shortcut icon" href="https://sun2-3.userapi.com/LS5KLD4M_s8P4s2goo6XZSIUx2eLzOka4ZqbAg/5NyARrS_nm8.jpg?ava=1" type="image/png">
  				<meta name="viewport" content="width=device-width, initial-scale=1">
  				<script data-ad-client="ca-pub-7088445945474705" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
- <title> Chat</title>
+ <script>
+ document.title = "Chat";
+ </script>
  <style>
 body {
   margin: 0;
@@ -159,6 +162,7 @@ body {
  <script>
     
     firebase.database().ref("messages").on("child_added", function (snapshot) {
+	document.title = "(уведомление)Сообщение отправил:" + snapshot.val().sender;
 	     var money = 0;
         var html = "";
         
