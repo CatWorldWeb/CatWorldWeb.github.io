@@ -79,7 +79,7 @@ width:220px;
  <ul id = "messages"></ul>
  <script>
     // listen for incoming messages
-    firebase.database().ref("site").on("child_added", function (snapshot) {
+   <!-- в скобках после ref впишите свой путь базы данных например: firebase.database().ref("Key") --> firebase.database().ref("site").on("child_added", function (snapshot) {
 	
         var html = "";
         // give each message a unique ID
