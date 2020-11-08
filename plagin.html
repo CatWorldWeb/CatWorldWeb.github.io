@@ -16,7 +16,7 @@
 border:4px solid black;
 border-radius:15px;
 
-color:gray;
+color:pink;
 width:999px;
 }
 .table {
@@ -29,71 +29,96 @@ width:220px;
 </style>
 <a href = "https://zen.yandex.ru/media/id/5ee0d1dfdabd9a56340e242d/kak-priviazat-nash-plagin-k-svoemu-saita-i-k-serveru-firebase-5fa52ee5b1fbcf2e2312f3e0"><font color = "yellow">Инструкция по установке</font></a>
 <plaintext class = "code" id = "copy">
-var name = prompt("Введите свое имя");
-  </script>
+<script src ="https://catworldweb.github.io/database.js">
+				
+</script>
+
+				
+
   <script>
     function sendMessage() {
 	
-        
+        // get message
         var message = document.getElementById("message").value;
-          if (name != "" && message != "")
+          if (myName != "" && message != "")
 	{
-     
-        firebase.database().ref("messages").push().set({
-            "sender": name,
-            "message": message
+        // save in database
+        firebase.database().ref("site").push().set({
+            "user": myName,
+            "send": message,
+            
         });
  document.getElementById("message").value = "";
-       
+        // prevent form from submitting
         return false;
 		}
     }
 	
 </script>
+
+  
+<p></p>
+<hr></hr><hr></hr><hr></hr>
+<p></p>
 <center>
+<h1><font color = "yellow"> Публичный Чат </font></h1>
+<script data-ad-client="ca-pub-7088445945474705" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
 
 
 <form >
-<input id="message" placeholder = "Введите сообщение" autocomplete = "off" class = "displaymessage" >
- <img src ="ссылка на изображение кнопки отправки" onclick = "return sendMessage();" width = "50" height = "50">
+<textarea id="message" placeholder = "Введите сообщение" autocomplete = "off" class = "displaymessage" ></textarea>
+ <img src ="https://psv4.userapi.com/c856524/u617056156/docs/d5/e32427e4c02b/2020_10_16_063654.png?extra=a56gA5lfWMkMAu58NkzP2LAys0fjoaw_ucVrkWjbLf3zz0_hHMmTVJZDQVBCInvk6QzaTUwBGa-HMC7OY5d5QsrGV3P2xI5VWkRCt6McvwwqX83yNawAm7EhwS6F48UzM0EHqEurjoEqNpjkTVjZtQpQA50" onclick = "return sendMessage();" width = "50" height = "50">
+ 
+ 				
+ 				
+ 
  </form>
- <ul id = "messages" class = "canvaschat"></ul>
+ <ul id = "messages"></ul>
  <script>
-   
-    firebase.database().ref("messages").on("child_added", function (snapshot) {
+    // listen for incoming messages
+    firebase.database().ref("site").on("child_added", function (snapshot) {
 	
         var html = "";
-       
-        html += "<li id='message-" + snapshot.key + "'>";
+        // give each message a unique ID
+        html+="<hr></hr>"
+        html += "<li id='message-" + snapshot.key + "' class= 'canvaschat'>";
+        // show delete button if message is sent by me
         
-        
-        html += snapshot.val().sender + ": " + snapshot.val().message;
+        html += snapshot.val().user+ ": " + snapshot.val().send;
         html += "</li>";
- if (snapshot.val().sender == name) {
+ if (snapshot.val().user == myName) {
             html += "<button data-id='" + snapshot.key + "' onclick='deleteMessage(this);' class = 'send'>";
                 html += "Delete";
             html += "</button>";
         }
+ 
+   			
+   
+        
+        
         document.getElementById("messages").innerHTML += html;
     });
 	
 </script>
 <script>
 function deleteMessage(self) {
-    
+    // get message ID
     var messageId = self.getAttribute("data-id");
  
-    
-    firebase.database().ref("messages").child(messageId).remove();
+    // delete message
+    firebase.database().ref("site").child(messageId).remove();
 }
  
-
-firebase.database().ref("messages").on("child_removed", function (snapshot) {
-  
+// attach listener for delete message
+firebase.database().ref("site").on("child_removed", function (snapshot) {
+    // remove message node
     document.getElementById("message-" + snapshot.key).innerHTML = "сообщение удалено";
 });
 </script>
-<style>
+ <style>
  .text{
  color: black;
  }
