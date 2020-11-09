@@ -1,2 +1,331 @@
-<!DOCTYPE html>
-<html> <head> <link rel="shortcut icon" href="https://sun2-3.userapi.com/LS5KLD4M_s8P4s2goo6XZSIUx2eLzOka4ZqbAg/5NyARrS_nm8.jpg?ava=1" type="image/png"> 				<meta name="viewport" content="width=device-width, initial-scale=1"> 				<script data-ad-client="ca-pub-7088445945474705" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> document.title = "Chat"; </script> <style>body { margin: 0; font-family: Arial, Helvetica, sans-serif;} .topnav { position: fixed; top: 0; left: 0; right: 0; overflow: hidden; background-color: #000; height:50px;} .topnav a { float: left; display: block; color: #f2f2f2; text-align: center; padding: 16px 20px; text-decoration: none; font-size: 17px;} .topnav a:hover { background-color: #ddd; color: black;} .topnav a.active { background-color: #0c170c; color: white;} .topnav .icon { display: none;} @media screen and (max-width: 600px) { .topnav a:not(:first-child) {display: none;} .topnav a.icon { float: right; display: block; }} @media screen and (max-width: 600px) { .topnav.responsive {position: relative;} .topnav.responsive .icon { position: absolute; right: 0; top: 0; } .topnav.responsive a { float: none; display: block; text-align: left; }} </style> <script> 				var url ="https:/"; </script> <script> function myFunction() { var x = document.getElementById("myTopnav"); if (x.className === "topnav") { x.className += " responsive"; } else { x.className = "topnav"; }} </script> </head> <body bgcolor="#232323"> <div class="topnav" id="myTopnav"> <a href="index.html">Главная</a> <a href="games.html">Игры</a> <a href="partners.html">Партнёры</a> <a href="videos.html">CatTube</a> <a href="news.html">Новости</a> <a href="audio.html">Аудиозаписи</a> <a href="characters.html">Персонажи игр</a> <a href="chatik.html" class="active">Чатик</a> <a href="edit.html">Веб-редактор</a> <a href="contacts.html">Контакты</a> <a href="javascript:void(0);" class="icon" onclick="myFunction()"> <i class="fa fa-bars"></i> </a> </div> <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script><script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script> <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script><script src = "https://catworldweb.github.io/database.js"> </script> <script> </script> <script> function sendMessage() {	 var message = document.getElementById("message").value; if (myName != "" && message != "" )	{ firebase.database().ref("messages").push().set({ "sender": myName, "message": message, });		 document.getElementById("message").value = ""; return false;		} }	</script> <p></p><hr></hr><hr></hr><hr></hr><p></p><center><h1><font color = "yellow"> Публичный Чат </font></h1><a href = "plagin.html"><font size ="4px"><font color = "blue">Установить чат на свой сайт</font></font></a><script data-ad-client="ca-pub-7088445945474705" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <form ><textarea id="message" placeholder = "Введите сообщение" autocomplete = "off" class = "displaymessage" ></textarea> <img src ="https://psv4.userapi.com/c856236/u549103040/docs/d5/a16ac796bffc/otpravit.png?extra=q7AO5A7wMREkWY-WlAiKiU6zqafCJripwEvGQsOiy8OjYfJgO1D5XI3bbCg1-djmNW6LtO4E4OUhwRDvaw2qWw0J16iUh9QXefpdr9VeO-2_hULukW5pafodwtvTKwAqTkoSLbS0NW3i8HVrU0r8T0YIKXY" onclick = "return sendMessage();" width = "80" height = "50"> 				 				 </form> <ul id = "messages"></ul> <script> firebase.database().ref("messages").on("child_added", function (snapshot) {	document.title = "(уведомление)Сообщение отправил:" + snapshot.val().sender;	 var money = 0; var html = ""; html+="<hr></hr>" html += "<li id='message-" + snapshot.key + "' class= 'canvaschat'>"; html += snapshot.val().sender + ": " + snapshot.val().message; html += "</li>"; if (snapshot.val().sender == myName || snapshot.val().sender =="хоррор") { html += "<button data-id='" + snapshot.key + "' onclick='deleteMessage(this);' class = 'send'>"; html += "Delete"; html += "</button>"; } let audio = new Audio('https://catworldweb.github.io/audios.getkeep/u_edomlenie-9.mp3');audio.play();		console.log (snapshot.val().sender + ":" + snapshot.val().message); document.getElementById("messages").innerHTML += html; });	</script> <script>function deleteMessage(self) { var messageId = self.getAttribute("data-id"); firebase.database().ref("messages").child(messageId).remove();} firebase.database().ref("messages").on("child_removed", function (snapshot) { document.getElementById("message-" + snapshot.key).innerHTML = "сообщение удалено";});</script> <style> .text{ color: black; } .send { background-color: red; border:5px solid red; border-radius:15px; color:yellow; } .work { background-color: blue; border:5px solid blue; border-radius:15px; color:yellow; } .canvaschat { background-color:white; border:10px solid white; border-radius:15px; width: 300px; } .displaymessage { border: 10px solid white; border-radius:15px; </style> </body> </html>
+<!DOCKTYPE html>
+ <html>
+  <head>
+  				<script data-ad-client="ca-pub-7088445945474705" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  				<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KC8M4WVS1W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KC8M4WVS1W');
+</script>
+<!-- Put this script tag to the <head> of your page -->
+				<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(69071104, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/69071104" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
+
+<script type="text/javascript">
+  VK.init({apiId: 7485921, onlyWidgets: true});
+</script>
+   <script src="title.js"></script>
+   <meta name="yandex-verification" content="abffed35a3e5312b" />
+   <link rel="shortcut icon" href="https://sun2-3.userapi.com/LS5KLD4M_s8P4s2goo6XZSIUx2eLzOka4ZqbAg/5NyARrS_nm8.jpg?ava=1" type="image/png">
+   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+   <link rel="manifest" href="/site.webmanifest">
+   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+   <meta name="msapplication-TileColor" content="#da532c">
+   <meta name="theme-color" content="#ffffff">
+   <meta charset="UTF-8"/>
+   <title>Cat-World Games</title>
+   <style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  overflow: hidden;
+  background-color: #000;h
+  
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 16px 20px;
+  text-decoration: none;
+  font-size: 13px;
+  
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #0c170c;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+   </style>
+   <script>
+  function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+   </script>
+   <style>
+     h1 {
+     border: 1px solid #333333;
+     padding: 10px;
+    }
+   </style>
+  </head>
+  <body>
+   <div class="topnav" id="myTopnav">
+  <a href="index.html" class="active">Главная</a>
+  <a href="games.html">Игры</a>
+  <a href="partners.html">Партнёры</a>
+  <a href="videos.html">CatTube</a>
+  <a href="news.html">Новости</a>
+  <a href="audio.html">Аудиозаписи</a>
+  <a href="characters.html">Персонажи игр</a>
+  <a href="chatik.html">Чатик</a>
+  <a href="edit.html">Веб-редактор</a>
+  <a href="contacts.html">Контакты</a>
+   <a href="plagin.html">Плагин</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+     <i class="fa fa-bars"></i>
+    </a>
+   </div>
+   <noscript><div><img src="https://mc.yandex.ru/watch/64681048" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+   <style>
+     #test{
+     text-align:center;
+     font-family:serif;
+     color: green;
+     letter-spacing:2px;
+     font-size:70px;
+     text-shadow:5px 3px 25px gray;
+     padding:5px;
+     border:2px lightskyblue;
+     border-radius:30px;
+   }
+   
+     #text{
+     text-align:center;
+     color:green;
+     font: SNOWSTORM LIGHT;
+     letter-spacing:3px;
+   }
+     #text2{
+     margin-top:10%;
+     text-align:center;
+     font-family:Arial;
+     color:white;
+     letter-spacing:3px;
+     word-spacing:4px;
+     text-shadow:5px 3px 20px lightskyblue;
+   }
+     #b1{
+     text-align:center;
+     font-weight:bold;
+   }
+     #ttt{
+     color:white;
+     text-align:center;
+     padding:5px;
+     border:2px lightskyblue;
+     font-family:serif;
+     border-radius:60px;
+     font-family: system-ui;
+   }
+     #all{
+     padding:5px;
+     border:5px solid red;
+     font-family:serif;
+     border-radius:30px;
+     background-color: black;
+   }
+  </style>
+  <style>
+     .aPO9kYX .anXL-4U {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     top: 0;
+   }
+  </style>
+  <style>
+  .quotes {
+font-style: italic;
+margin-top: 35px;
+}
+  </style>
+						<!--	must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>	
+								
+								<script src ="https://catworldweb.github.io/database.js">
+				
+</script>
+
+				
+
+  <script>
+    function sendMessage() {
+	
+        // get message
+        var message = document.getElementById("message").value;
+          if (myName != "" && message != "")
+	{
+        // save in database
+        firebase.database().ref("Chat").push().set({
+            "people": myName,
+            "msg": message,
+            
+        });
+ document.getElementById("message").value = "";
+        // prevent form from submitting
+        return false;
+		}
+    }
+	
+</script>
+
+  
+
+<center>
+<h1><font color = "yellow"> Публичный Чат </font></h1>
+<script data-ad-client="ca-pub-7088445945474705" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+<form >
+<textarea id="message" placeholder = "Введите сообщение" autocomplete = "off" class = "displaymessage" ></textarea>
+ <img src ="https://psv4.userapi.com/c856524/u617056156/docs/d5/e32427e4c02b/2020_10_16_063654.png?extra=a56gA5lfWMkMAu58NkzP2LAys0fjoaw_ucVrkWjbLf3zz0_hHMmTVJZDQVBCInvk6QzaTUwBGa-HMC7OY5d5QsrGV3P2xI5VWkRCt6McvwwqX83yNawAm7EhwS6F48UzM0EHqEurjoEqNpjkTVjZtQpQA50" onclick = "return sendMessage();" width = "50" height = "50">
+ 
+ 				
+ 				
+ 
+ </form>
+ <ul id = "messages"></ul>
+ <script>
+    // listen for incoming messages
+    firebase.database().ref("Chat").on("child_added", function (snapshot) {
+	while(html)
+        var html = "";
+        // give each message a unique ID
+        
+        html += "<li id='message-" + snapshot.key + "' class= 'canvaschat'>";
+        // show delete button if message is sent by me
+        
+        html += snapshot.val().people+ ": " + snapshot.val().msg;
+        html += "</li>";
+ if (snapshot.val().people == myName) {
+            html += "<button data-id='" + snapshot.key + "' onclick='deleteMessage(this);' class = 'send'>";
+                html += "Delete";
+            html += "</button>";
+        }
+ 
+   			
+   
+        
+        
+        document.getElementById("messages").innerHTML += html;
+    });
+	
+</script>
+<script>
+function deleteMessage(self) {
+    // get message ID
+    var messageId = self.getAttribute("data-id");
+ 
+    // delete message
+    firebase.database().ref("Chat").child(messageId).remove();
+}
+ 
+// attach listener for delete message
+firebase.database().ref("Chat").on("child_removed", function (snapshot) {
+    // remove message node
+    document.getElementById("message-" + snapshot.key).innerHTML = "сообщение удалено";
+});
+</script>
+ <style>
+ 				body
+ 				{
+ 				background-color:black;
+ 				}
+ .text{
+ color: black;
+ }
+ .send
+ {
+ background-color: red;
+ border:5px solid red;
+ border-radius:15px;
+ color:yellow;
+ }
+ .canvaschat
+ {
+ background-color:white;
+ border:10px solid white;
+ border-radius:15px;
+ }
+ .displaymessage
+ {
+ border: 10px solid white;
+ border-radius:15px;
+ }
+ .chat_bar
+{
+background-color:black;
+}}
+ </style>
+
+				</body>
+</html>
