@@ -179,7 +179,7 @@ body {
         }
           let audio = new Audio('https://catworldweb.github.io/audios.getkeep/u_edomlenie-9.mp3');
 audio.play();
-		
+		console.log (snapshot.val().sender + ":" + snapshot.val().message);
 
         document.getElementById("messages").innerHTML += html;
     });
