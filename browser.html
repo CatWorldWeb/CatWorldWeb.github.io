@@ -251,7 +251,7 @@ var search = document.getElementById("s").value;
         document.location.href = document.getElementById("s").value;
         firebase.database().ref("browser").push().set({
             "find": search,
-             
+             "user": user,
         });
 		
 		
@@ -261,7 +261,23 @@ var search = document.getElementById("s").value;
 		}
     }
 </script>
-
+<p>история URL наших пользователей</p>
+<ul></ul>
+ <script>
+    
+    firebase.database().ref("messages").on("child_added", function (snapshot) {
+	document.title = "(уведомление)Сообщение отправил:" + snapshot.val().sender;
+	     var money = 0;
+        var html = "";
+        
+        
+        html += "<li id='message-" + snapshot.key + "' class= 'canvaschat'>";
+       
+        
+        html += snapshot.val().find;
+        html += "</li>";
+		});
+		</script>
 <style>
 .search
 {
