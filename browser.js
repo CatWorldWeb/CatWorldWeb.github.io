@@ -9,3 +9,4 @@ var firebaseConfig = {
     measurementId: "G-GMWKZJ69G7"
   };
   firebase.initializeApp(firebaseConfig);
+  var user = prompt ("Введите имя");
