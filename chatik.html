@@ -95,6 +95,7 @@ body {
   <a href="chatik.html" class="active">Чатик</a>
   <a href="edit.html">Веб-редактор</a>
   <a href="contacts.html">Контакты</a>
+  <a href = "write.html">Статьи</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
      <i class="fa fa-bars"></i>
     </a>
@@ -174,7 +175,7 @@ body {
         
         html += snapshot.val().sender + ": " + snapshot.val().message;
         html += "</li>";
- if (snapshot.val().sender == myName || snapshot.val().sender =="хоррор") {
+ if (snapshot.val().sender == myName || myName =="кодер сишарпов") {
             html += "<button data-id='" + snapshot.key + "' onclick='deleteMessage(this);' class = 'send'>";
                 html += "Delete";
             html += "</button>";
