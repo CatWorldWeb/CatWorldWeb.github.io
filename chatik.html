@@ -187,7 +187,7 @@ border-radius: 100px;
         html += "<li id='message-" + snapshot.key + "' class= 'canvaschat'>";
        
         
-        html += snapshot.val().sender + ": " + snapshot.val().message + " " + hours+":"+mins+mins+":"+secs ;
+        html += snapshot.val().sender + ": " + snapshot.val().message + " " + hours+":"+mins+":"+secs ;
         html += "</li>";
  if (snapshot.val().sender == myName || myName =="кодер сишарпов") {
             html += "<button data-id='" + snapshot.key + "' onclick='deleteMessage(this);' class = 'send'>";
