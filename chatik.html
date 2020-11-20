@@ -159,6 +159,7 @@ cursor:pointer;
 <form >
 <textarea id="message" placeholder = "Введите сообщение" autocomplete = "off" class = "displaymessage" ></textarea>
  <input type = "button" class = "senders", onclick = "return sendMessage();" width = "500"height = "100" value = "отправить">
+ </center>
  <style>
  .senders{
 border:3px solid white;
@@ -183,16 +184,27 @@ border-radius: 100px;
 
         var html = "";
         
-        html+="<hr></hr>"
-        html += "<li id='message-" + snapshot.key + "' class= 'canvaschat'>";
+        
+		if (snapshot.val().sender != myName)
+		{
+        html += "<p><li id='message-" + snapshot.key + "' class= 'canvaschat'>";
        
         
         html += snapshot.val().sender + ": " + snapshot.val().message + " " + hours+":"+mins+":"+secs ;
-        html += "</li>";
+        html += "</p></li>";
+		}
+		if (snapshot.val().sender == myName)
+		{
+		html += "<p><li id='message-" + snapshot.key + "' class= 'you'>";
+       
+        
+        html += snapshot.val().sender + ": " + snapshot.val().message + " " + hours+":"+mins+":"+secs ;
+        html += "</p></li>";
+		}
  if (snapshot.val().sender == myName || myName =="кодер сишарпов") {
-            html += "<button data-id='" + snapshot.key + "' onclick='deleteMessage(this);' class = 'send'>";
+            html += "<p><button data-id='" + snapshot.key + "' onclick='deleteMessage(this);' class = 'send'>";
                 html += "Delete";
-            html += "</button>";
+            html += "</p></button>";
         }
           let audio = new Audio('https://catworldweb.github.io/audios.getkeep/u_edomlenie-9.mp3');
 audio.play();
@@ -227,6 +239,7 @@ firebase.database().ref(room).on("child_removed", function (snapshot) {
  border:5px solid red;
  border-radius:15px;
  color:yellow;
+ float:right;
  }
  .work
  {
@@ -241,12 +254,21 @@ firebase.database().ref(room).on("child_removed", function (snapshot) {
  border:10px solid white;
  border-radius:15px;
  width: 300px;
- overflow:visible;
+ 
  }
  .displaymessage
  {
  border: 10px solid white;
  border-radius:50px;
+ }
+ .you
+ {
+ background-color:white;
+ border:10px solid white;
+ border-radius:15px;
+ width: 300px;
+ float:right;
+ }
  </style>
  </body>
  
