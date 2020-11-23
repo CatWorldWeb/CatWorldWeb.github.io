@@ -10,5 +10,5 @@ var firebaseConfig = {
   };
  
    firebase.initializeApp(firebaseConfig);
-   
+   var like = 0;
    var myName = prompt("Введите свое имя");
