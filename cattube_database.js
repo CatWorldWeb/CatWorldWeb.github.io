@@ -11,3 +11,6 @@ var firebaseConfig = {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   var author = prompt("Введите название канала");
+  var prevue = prompt("Вставьте ссылку на превью");
+  var icon = "https://poisk-firm.ru/storage/employer/logo/06/35/dd/b553fadeec1674468df333dc27.png";
+  
