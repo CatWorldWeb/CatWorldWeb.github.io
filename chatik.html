@@ -117,9 +117,10 @@
   </script>
   <script>
     function sendMessage() {
-	
-       
+	 
+      
         var message = document.getElementById("message").value;
+		
           if (myName != "" && message != "" )
 	{
         
@@ -147,10 +148,8 @@ cursor:pointer;
 }
 </style>
 <hr><hr><hr><hr></hr><hr></hr>
-<center>
-<button onclick = "fon()"class = "send">Код для установки своего фона</button>
-<button onclick = "image()"class = "send">Код для отправки изображения по URL</button>
-<button onclick = "kapets()"class = "send">код для ссылки</button>
+
+
 <p></p>
 <script>
 function fon()
@@ -177,10 +176,6 @@ document.getElementById("message").value = "<a href = 'ссылка'>текст 
 
 
 
-<form>
-<textarea id="message" placeholder="Введите сообщение" autocomplete="off" class="displaymessage"></textarea>
- <input type="button" class="senders" ,="" onclick="return sendMessage();" width="500" height="100" value="отправить">
- </form></center>
  <style>
  .senders{
 border:3px solid white;
@@ -235,7 +230,16 @@ audio.play();
     });
 	
 </script>
+<center>
+<button onclick = "fon()"class = "send">Код для установки своего фона</button>
+<button onclick = "image()"class = "send">Код для отправки изображения по URL</button>
+<button onclick = "kapets()"class = "send">код для ссылки</button>
 
+<form>
+<textarea id="message" placeholder="Введите сообщение" autocomplete="off" class="displaymessage"></textarea>
+
+ <input type="button" class="senders" ,="" onclick="return sendMessage();" width="500" height="100" value="отправить">
+ </form></center>
 <script>
 function deleteMessage(self) {
   
