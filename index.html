@@ -131,6 +131,7 @@ body {
   <a href="edit.html">Веб-редактор</a>
   <a href="contacts.html">Контакты</a>
   <a href="browser.html">Браузер</a>
+  
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
      <i class="fa fa-bars"></i>
     </a>
@@ -320,14 +321,14 @@ width:200px;
 
 <hr></hr>
 <center>
-<h1><strong><font color = "red">24 Hours of Death</font></strong></h1>
+<h1><strong><font color = "red">Combat Space</font></strong></h1>
 </center>
-<h3><strong><font color = "red"> Трейлер игры </font></strong></h3>
-<iframe width="1065" height="599" src="https://www.youtube.com/embed/rvJfpqYqUnk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<a href = "combatspace.html"><h3><strong><font color = "red">Подробнее о проекте</a></font></strong></h3>
+<img src = "https://sun9-44.userapi.com/impg/pKAnYIPzTm-QRf8E4c18_xHhYSDQzdXWx_mU_A/sl8lbtzE3sg.jpg?size=1920x1080&quality=96&proxy=1&sign=88e49c3ec0ee875f3ecaae9a4c257d8f&type=album"></img>
 
 <ul >
 <li ><font color="red">дата выхода:2021 год</font></li>
-<li ><font color="red">порт на пк и андроид</font></li>
+<li ><font color="red">Порт:ПК</font></li>
 </ul>
 <!-- Put this div tag to the place, where the Like block will be -->
 <div id="vk_like" class = "green"></div>
@@ -339,37 +340,21 @@ VK.Widgets.Like("vk_like", {type: "button", height: 24});
 
 <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
 
-<script>
+<script src = "https://catworldweb.github.io/comment_base.js">
  
-  var firebaseConfig = {
-    apiKey: "AIzaSyCIYuUoD0MNpvJHODMSp76JEJRG_pm1egg",
-    authDomain: "vkotomire.firebaseapp.com",
-    databaseURL: "https://vkotomire.firebaseio.com",
-    projectId: "vkotomire",
-    storageBucket: "vkotomire.appspot.com",
-    messagingSenderId: "710516320047",
-    appId: "1:710516320047:web:1966bb2619557c8f8ea3da",
-    measurementId: "G-GMWKZJ69G7"
-  };
- 
-   firebase.initializeApp(firebaseConfig);
-   
-   var name = prompt("Введите свое имя,это необходимо!");
-   
-   
-
   </script>
+  
  
   <script>
     function sendMessage() {
 	
        
         var comm = document.getElementById("message").value;
-          if (name != "" && comm != "" && comm.length < 4000)
+          if (myName != "" && comm != "" && comm.length < 4000)
 	{
         
         firebase.database().ref("comment").push().set({
-            "user": name,
+            "user": myName,
             "commentariy": comm,
 			
         });
@@ -413,14 +398,12 @@ VK.Widgets.Like("vk_like", {type: "button", height: 24});
         html += "</p>";
 		
 		
-		
-		
 		if (snapshot.val().user == name) {
             html += "<button data-id='" + snapshot.key + "' onclick='deleteMessage(this);' class = 'send'>";
                 html += "Delete";
             html += "</button>";
         }
- 
+              
    			
    
         
@@ -429,8 +412,15 @@ VK.Widgets.Like("vk_like", {type: "button", height: 24});
     });
 	
 	
+
 </script>
 
+<style>
+.likes
+{
+backgound-image:url(https://avatars.mds.yandex.net/get-zen_doc/169683/pub_5c03ad888fcf080452322db3_5c03c7f1f8100903fca38517/scale_1200);
+}
+</style>
 <script>
 function deleteMessage(self) {
   
@@ -489,6 +479,8 @@ background-color: white;
 </style>
 <hr></hr>
 <font color = "red"><p>Пожертвовать Qiwi: +79885326467
+<p></p>
+
 <hr></hr>
 <p></p>
 <h4><font color="orange">По поводу рекламы писать</font></h4>
