@@ -13,3 +13,4 @@ var firebaseConfig = {
    
    var myName = prompt("Введите свое имя");
    var room = prompt ("введи название комнаты чата");
+    window.location = "?id=room";
