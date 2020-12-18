@@ -12,10 +12,9 @@ var firebaseConfig = {
    firebase.initializeApp(firebaseConfig);
    
    var myName = prompt("Введите свое имя");
-  if (id =="")
-  {
-    window.location = "?id="+room;
-  }
-  else{
+  
+  
+   
+ 
 	  var room = prompt("Введите название комнаты");
-  }
+  
